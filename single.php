@@ -19,7 +19,16 @@ get_header(); ?>
                <span class='nav-next alignright'><?php next_post( '% &raquo;', '', 'yes' ); ?></span>
             </nav><!-- nav -->
 
-            <?php get_template_part( 'content', 'default' ); ?>
+            <?php 
+            if ( have_posts() ) {
+                while ( have_posts() ) {
+                    the_post();
+                    get_template_part( 'content', 'summary' ); 
+                } 
+            } else { 
+                get_template_part( 'content', 'noposts' ); 
+            } 
+            ?>
 
             <nav class='postnav'>
                <span class='nav-previous alignleft'><?php previous_post( '&laquo; %', '', 'yes' ); ?></span>

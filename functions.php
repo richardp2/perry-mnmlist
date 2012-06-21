@@ -360,3 +360,39 @@ add_filter( 'the_content', 'perrymnmlist_unautop_4_img', 999 );
 
 remove_action( 'wp_head', 'wlwmanifest_link' ); // Display the link to the Windows Live Writer manifest file.
 remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that is generated on the wp_head hook, WP version
+
+
+/**
+ * Add infinite scroll to the theme
+ */
+function perrymnmlist_theme_js(){
+    wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
+    if( ! is_singular() ) {
+        wp_enqueue_script('infinite_scroll');
+    }
+}
+add_action('wp_enqueue_scripts', 'perrymnmlist_theme_js');
+
+/**
+ * Infinite Scroll
+ */
+function perrymnmlist_infinite_scroll_js() {
+    if( ! is_singular() ) { ?>
+    <script>
+    var infinite_scroll = {
+        loading: {
+            img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
+            msgText: "<?php _e( 'Loading the next set of posts...', 'perrymnmlist' ); ?>",
+            finishedMsg: "<?php _e( 'All posts loaded.', 'perrymnmlist' ); ?>"
+        },
+        "nextSelector":"#nav-below .nav-previous a",
+        "navSelector":"#nav-below",
+        "itemSelector":"article",
+        "contentSelector":"#content"
+    };
+    jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
+    </script>
+    <?php
+    }
+}
+add_action( 'wp_footer', 'perrymnmlist_infinite_scroll_js',100 );

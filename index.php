@@ -18,10 +18,19 @@ get_header(); ?>
             <nav class='breadcrumb'>
                 <?php if(function_exists('bcn_display')) { bcn_display(); } ?>
             </nav>
-
-            <?php get_template_part( 'content', 'default' ); ?>
-                        
-            <?php perrymnmlist_content_nav( 'nav-below' ); ?>
+            
+            <?php 
+            if ( have_posts() ) {
+                while ( have_posts() ) {
+                    the_post();
+                    get_template_part( 'content', 'summary' ); 
+                } 
+            } else { 
+                get_template_part( 'content', 'noposts' ); 
+            } 
+            
+            perrymnmlist_content_nav( 'nav-below' );
+            ?>
         </div><!-- #content -->
 
 <?php get_sidebar(); ?>
