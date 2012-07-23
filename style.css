@@ -185,15 +185,11 @@ input[type="text"],textarea {background:#f9f9f9;border:1px solid #ccc;
 
 
 
-/* Twitter Widget Pro
+/* Twitter Widget
 -------------------------------------------------------------- */
-#sidebar .widget_twitter ul { list-style:none; }
-#sidebar .widget_twitter li { clear:both; }
-#sidebar .widget_twitter li img { float:left; margin-right:.5em; }
-#sidebar .widget_twitter li .clear { clear:both; }
-#sidebar .widget_twitter div { padding:0; }
-#sidebar .widget_twitter ul li { margin-bottom:5px; }
-#sidebar .widget_twitter .follow-button,
-#sidebar .widget_twitter .xavisys-link { margin:0 10px 10px 25px; }
-#sidebar .widget_twitter .entry-meta { display:block; font-size:80%; }
-#sidebar .widget_twitter .intent-meta a { display: inline-block; }
+#sidebar .textwidget,
+#sidebar .twtr-widget, 
+#sidebar .twtr-widget div { padding: 0; }
+#sidebar .twtr-widget div.twtr-hd { padding: 10px; }
+#sidebar .twtr-widget .twtr-tweet-wrap { padding: 6px 8px; }
+#sidebar .twtr-ft { display: none; }
