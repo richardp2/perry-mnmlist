@@ -1,14 +1,12 @@
 <?php
 /**
- * The default template for displaying content
+ * The template for displaying home specific content
  *
  * @package WordPress
  * @subpackage perry_mnmlist
  * @since Perry Minimalist 1.0
  */
-?>
-
-<?php 
+ 
     /**
      * Display the latest home page post specifically for display at the top of the home page
      */ 

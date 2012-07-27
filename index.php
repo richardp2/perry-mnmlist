@@ -23,7 +23,7 @@ get_header(); ?>
             if ( have_posts() ) {
                 while ( have_posts() ) {
                     the_post();
-                    get_template_part( 'content', 'summary' ); 
+                    get_template_part( 'summary', get_post_format() ); 
                 } 
             } else { 
                 get_template_part( 'content', 'noposts' ); 
