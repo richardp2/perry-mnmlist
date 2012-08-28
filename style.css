@@ -191,6 +191,12 @@ input[type="text"],textarea {background:#f9f9f9;border:1px solid #ccc;
 
 .assistive-text, .widget_search label {display:none;}
 
+#header a.secret,
+#main a.secret,
+#content a.secret,
+.entry a.secret,
+#sidebar a.secret,
+#footer a.secret { color: inherit; text-decoration: inherit; }
 
 
 /* Twitter Widget

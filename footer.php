@@ -14,7 +14,9 @@
 
         <footer id='footer' role='contentinfo'>
             <div id='site-info'>
-                Copyright &copy; 2009-<?php echo date('Y');?> Rosie & Jim. All Rights Reserved. 
+                Copyright &copy; 2009-<?php echo date('Y'); ?> Rosie & Jim. All 
+                <a href='<?php echo wp_login_url( get_permalink() ); ?>' title=''
+                    class='secret'>Rights</a> Reserved. 
             </div>
 
             <div id='creative-commons'>
