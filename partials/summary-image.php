@@ -16,7 +16,7 @@
         </header><!-- .entry-header -->
 
         <div class='entry'>
-            <div class='wp-caption'>
+            <div class='wp-caption' style='width: 322px;'>
             <?php
             if ( has_post_thumbnail() ) {
                 $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');

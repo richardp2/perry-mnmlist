@@ -80,18 +80,6 @@ input[type="text"],textarea {background:#f9f9f9;border:1px solid #ccc;
     -webkit-box-shadow:inset 1px 1px 1px rgba(0,0,0,0.1);padding:2px;}
 
 
-/* Alignment */
-.alignleft { display: inline; float: left; margin-right: 1em; }
-.alignright { display: inline; float: right; margin-left: 1em; }
-.aligncenter { clear: both; display: block; margin: 0 auto; }
-.textleft {text-align:left;}
-.textright {text-align:right;}
-.textcenter {text-align:center;}
-
-.half {clear:right;width:47%;}
-
-.entry-meta {clear:right;}
-
 #wrapper {margin:0 auto;max-width: 810px;}
 #header {height:216px;}
 #main {clear:both;}
@@ -148,11 +136,10 @@ input[type="text"],textarea {background:#f9f9f9;border:1px solid #ccc;
     border: 1px solid #ddd;
     text-align: center;
     background-color: #f3f3f3;
-    padding-top: 8px;
+    padding: 8px 5px 0 3px;
     margin: 10px auto;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    width: 322px;
 }
 
 #comments cite {font-weight:bold;font-style:normal;}
@@ -207,3 +194,24 @@ input[type="text"],textarea {background:#f9f9f9;border:1px solid #ccc;
 #sidebar .twtr-widget div.twtr-hd { padding: 10px; }
 #sidebar .twtr-widget .twtr-tweet-wrap { padding: 6px 8px; }
 #sidebar .twtr-ft { display: none; }
+
+
+
+
+/* Instagrate styling
+-------------------------------------------------------------- */
+.instagrate { width: 520px; }
+
+
+
+/* Alignment */
+.alignleft { display: inline; float: left; margin-right: 1em; }
+.alignright { display: inline; float: right; margin-left: 1em; }
+.aligncenter { clear: both; display: block; margin: 0 auto; }
+.textleft {text-align:left;}
+.textright {text-align:right;}
+.textcenter {text-align:center;}
+
+.half {clear:right;width:47%;}
+
+.entry-meta {clear:right;}
