@@ -16,7 +16,6 @@
         charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width" />
     <title><?php wp_title(''); ?></title>
-    <meta name="description" content="<?php bloginfo('description'); ?>">
     
     <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
     <link rel="profile" href="http://gmpg.org/xfn/11" />

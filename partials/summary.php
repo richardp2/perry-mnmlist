@@ -1,10 +1,20 @@
 <?php
+/* SVN FILE: $Id$ */
 /**
- * The default template for displaying content
+ *  A part theme for displaying content summaries on the home/blog page
  *
- * @package WordPress
- * @subpackage perry_mnmlist
- * @since Perry Minimalist 1.0
+ *  Displays the default summary including a post thumbnail, if one exists
+ *
+ *  @package        Perry Minimalist
+ *  @subpackage     Partials
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 1.0.0
+ *  @version        $Rev$
+ *  @modifiedby     $LastChangedBy$
+ *  @lastmodified   $Date$
+ *
+ *  @todo           ToDo List
+ *                  - 
  */
 ?>
 

@@ -249,8 +249,9 @@ if ( ! function_exists( 'perrymnmlist_posted_on' ) ) :
  *
  * @since Perry Minimalist 1.0
  */
-function perrymnmlist_posted_on() {
-	printf( __( '<small><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a></small>', 'perrymnmlist' ),
+function perrymnmlist_posted_on( $posted_class = 'posted_on' ) {
+	printf( __( '<small class="%1$s"><a href="%2$s" title="%3$s" rel="bookmark"><time class="entry-date" datetime="%4$s" pubdate>%5$s</time></a></small>', 'perrymnmlist' ),
+	    $posted_class,
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),

@@ -1,10 +1,20 @@
 <?php
+/* SVN FILE: $Id$ */
 /**
- * The default template for displaying content
+ *  A part theme for displaying content
  *
- * @package WordPress
- * @subpackage perry_mnmlist
- * @since Perry Minimalist 1.0
+ *  Displays the default layout for blog content
+ *
+ *  @package        Perry Minimalist
+ *  @subpackage     Partials
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 1.1.0
+ *  @version        $Rev$
+ *  @modifiedby     $LastChangedBy$
+ *  @lastmodified   $Date$
+ *
+ *  @todo           ToDo List
+ *                  - 
  */
 ?>
 

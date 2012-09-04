@@ -1,10 +1,20 @@
 <?php
+/* SVN FILE: $Id$ */
 /**
- * The template for displaying summaries of content with the image post format
+ *  A part theme for displaying image content summaries on the home/blog page
  *
- * @package WordPress
- * @subpackage perry_mnmlist
- * @since Perry Minimalist 1.1
+ *  Displays the title and thumbnail image associated with the image post format 
+ * 
+ *  @package        Perry Minimalist
+ *  @subpackage     Partials
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 1.1.0
+ *  @version        $Rev$
+ *  @modifiedby     $LastChangedBy$
+ *  @lastmodified   $Date$
+ *
+ *  @todo           ToDo List
+ *                  - 
  */
 ?>
 

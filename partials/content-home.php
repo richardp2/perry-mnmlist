@@ -1,10 +1,20 @@
 <?php
+/* SVN FILE: $Id$ */
 /**
- * The template for displaying home specific content
+ *  A part theme for displaying home specific content
  *
- * @package WordPress
- * @subpackage perry_mnmlist
- * @since Perry Minimalist 1.0
+ *  Displays the home page post(s) without titles, meta data or comment data
+ *
+ *  @package        Perry Minimalist
+ *  @subpackage     Partials
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 1.0.0
+ *  @version        $Rev$
+ *  @modifiedby     $LastChangedBy$
+ *  @lastmodified   $Date$
+ *
+ *  @todo           ToDo List
+ *                  - 
  */
  
     /**
