@@ -44,7 +44,7 @@
         ?>
         </div><!-- .entry -->
 
-		<footer class="entry-meta textright">
-			<?php comments_number( '', '1 Comment', '% Comments' ); ?>
+		<footer class="entry-meta">
+		    <div class='comments'><?php comments_number( '0', '1', '%' ); ?></div>
 		</footer><!-- .entry-meta -->
 	</article><!-- #post-<?php the_ID(); ?> -->

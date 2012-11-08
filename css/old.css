@@ -1,0 +1,38 @@
+body {background:white;font:13px Georgia, "Bitstream Charter", serif;color:#505050;
+    line-height: 160%; }
+
+header,nav,section,article,aside,footer,hgroup {display:block;}
+    
+h1 {font-size:22px;}
+h2 {font-size:21px;}
+h3 {font-size:18px;}
+h4 {font-size:1em;}
+h5 {font-size:9pt;}
+h1,h2,h3,h4,h5 {padding:5px 0 10px 0;font-weight:bold;}
+
+img {border:none;}
+img a {border:none;}
+blockquote{border-left:2px solid #A5ABAB;font-style:italic;margin:0px; padding:0 12px 0 12px;}
+
+p {margin:0;padding:5px 0px 10px 0px;text-indent:0px;}
+
+small {color:gray;}
+
+a, a:link {color:#21759B;text-decoration:none;}
+a:visited {color:#21759B;text-decoration:none;}
+a:hover {color:#d54e21;text-decoration:none;}
+
+acronym,abbr {border-bottom:1px dotted #21759B;}
+
+del { color: red; text-decoration: line-through; }
+
+ul{padding: .5em 0em 1em 3.2em;}
+li{line-height: 160%; padding: 6px 0 0 0;}
+
+ol{padding: .5em 0em 0em 3.2em;}
+
+
+input[type="text"],textarea {background:#f9f9f9;border:1px solid #ccc;
+    box-shadow:inset 1px 1px 1px rgba(0,0,0,0.1);
+    -moz-box-shadow:inset 1px 1px 1px rgba(0,0,0,0.1);
+    -webkit-box-shadow:inset 1px 1px 1px rgba(0,0,0,0.1);padding:2px;}

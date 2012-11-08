@@ -30,9 +30,28 @@
             ?>
 		</header><!-- .entry-header -->
 
-		<div class='entry'><?php the_content(); ?></div><!-- .entry -->
+		<div class='entry'>
+		<?php 
+            the_content(); 
+            wp_link_pages( array( 
+                'before'           => '',
+                'after'            => '',
+                'nextpagelink'     => '<span class="alignright">' . __('Next page') . '</span>',
+                'previouspagelink' => '<span class="alignleft">' . __('Previous page') . '</span>',
+                'next_or_number'   => 'next' 
+            ));  
+            wp_link_pages( array( 
+                'before'           => '<p class="aligncenter textcenter">Skip to page ',
+                'after'            => '</p>',
+                'next_or_number'   => 'number' 
+            )); 
+        ?>
+	    </div><!-- .entry -->
 
-		<footer class="entry-meta textright">
-			<?php comments_number( '', '1 Comment', '% Comments' ); ?>
+		<footer class="entry-meta">
+		    <?php the_tags( '<span class="tag-links"><h4 class="entry-utility-prep entry-utility-prep-tag-links">' . 
+                            __('Tags ', 'perrymnmlist' ) . '</h4>', ", ", 
+                            "</span>" ) ?>
+            <div class='comments'><?php comments_number( '0', '1', '%' ); ?></div>
 		</footer><!-- .entry-meta -->
 	</article><!-- #post-<?php the_ID(); ?> -->

@@ -9,16 +9,16 @@
 
 get_header(); ?>
 
-		<div id="primary" class="image-attachment">
-			<div id="content" role="main">
+		<section id='primary' class='image-attachment'"'>
+			<div id='content' role='main'>
 
-			<?php the_post(); ?>
+			    <?php the_post(); ?>
 
-			<nav id="nav-single">
-				<h3 class="assistive-text"><?php _e( 'Image navigation', 'perrymnmlist' ); ?></h3>
-				<span class="nav-previous"><?php previous_image_link( false, __( '&larr; Previous' , 'perrymnmlist' ) ); ?></span>
-				<span class="nav-next"><?php next_image_link( false, __( 'Next &rarr;' , 'perrymnmlist' ) ); ?></span>
-			</nav><!-- #nav-single -->
+    			<nav id="nav-single">
+    				<h3 class="assistive-text"><?php _e( 'Image navigation', 'perrymnmlist' ); ?></h3>
+    				<span class="nav-previous"><?php previous_image_link( false, __( '&larr; Previous' , 'perrymnmlist' ) ); ?></span>
+    				<span class="nav-next"><?php next_image_link( false, __( 'Next &rarr;' , 'perrymnmlist' ) ); ?></span>
+    			</nav><!-- #nav-single -->
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header class="entry-header">
@@ -96,6 +96,6 @@ get_header(); ?>
 				<?php comments_template(); ?>
 
 			</div><!-- #content -->
-		</div><!-- #primary -->
+		</section><!-- #primary -->
 
 <?php get_footer(); ?>

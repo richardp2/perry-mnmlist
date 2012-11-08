@@ -14,24 +14,26 @@
 
 get_header(); ?>
 
-        <div id='content' role='main'>
-            <nav class='breadcrumb'>
-                <?php if(function_exists('bcn_display')) { bcn_display(); } ?>
-            </nav>
-            
-            <?php 
-            if ( have_posts() ) {
-                while ( have_posts() ) {
-                    the_post();
-                    get_template_part( '/partials/summary', get_post_format() ); 
+        <section id='primary'>
+            <div id='content' role='main'>
+                <nav class='breadcrumb'>
+                    <?php if(function_exists('bcn_display')) { bcn_display(); } ?>
+                </nav>
+                
+                <?php 
+                if ( have_posts() ) {
+                    while ( have_posts() ) {
+                        the_post();
+                        get_template_part( '/partials/summary', get_post_format() ); 
+                    } 
+                } else { 
+                    get_template_part( '/partials/content', 'noposts' ); 
                 } 
-            } else { 
-                get_template_part( '/partials/content', 'noposts' ); 
-            } 
-            
-            perrymnmlist_content_nav( 'nav-below' );
-            ?>
-        </div><!-- #content -->
+                
+                perrymnmlist_content_nav( 'nav-below' );
+                ?>
+            </div><!-- #content -->
+        </section><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -249,31 +249,68 @@ if ( ! function_exists( 'perrymnmlist_posted_on' ) ) :
  *
  * @since Perry Minimalist 1.0
  */
-function perrymnmlist_posted_on( $posted_class = 'posted_on' ) {
-	printf( __( '<small class="%1$s"><a href="%2$s" title="%3$s" rel="bookmark"><time class="entry-date" datetime="%4$s" pubdate>%5$s</time></a></small>', 'perrymnmlist' ),
-	    $posted_class,
-		esc_url( get_permalink() ),
-		esc_attr( get_the_time() ),
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() )
+function perrymnmlist_posted_on( ) {
+	printf( __( '
+            <small class="posted-on">
+                <time class="entry-date" datetime="%1$s" pubdate>%2$s<br />%3$s</time>
+                <span class="meta-prep meta-prep-author">%4$s</span>
+                <span class="author vcard">
+                    <a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s, </a>
+                </span>
+                <span class="meta-categories">in %8$s</span>
+            </small>', 'perrymnmlist' ),
+        esc_attr( get_the_time( 'c' ) ),
+        esc_html( get_the_date( 'd' ) ),
+        esc_html( get_the_date( 'M Y' ) ),
+        esc_attr( 'Written by ', 'perrymnmlist' ),
+        esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+        esc_attr( sprintf( 'View all articles by %s',  get_the_author() ) ),
+        get_the_author(),
+        get_the_category_list( ', ' )
 	);
 }
 endif;
 
-if ( ! function_exists( 'perrymnmlist_insert_term' ) ) :
+
+
+if ( ! function_exists( 'perrymnmlist_image_posted_on' ) ) :
 /**
- * Inserts default categories for use with the theme
- * Create your own perrymnmlist_insert_term to override in a child theme
+ * Prints HTML with meta information for the current post-date/time only, 
+ * originally created for use with the gallery post format
  *
  * @since Perry Minimalist 1.0
  */
-function perrymnmlist_insert_term() {
-    wp_insert_term( 'Home', 'category' );
+function perrymnmlist_image_posted_on( ) {
+    printf( __( '
+            <small class="posted-on">
+                <time class="entry-date" datetime="%1$s" pubdate>%2$s<br />%3$s</time>
+            </small>', 'perrymnmlist' ),
+        esc_attr( get_the_time( 'c' ) ),
+        esc_html( get_the_date( 'd' ) ),
+        esc_html( get_the_date( 'M Y' ) )
+    );
 }
 endif;
 
-add_action( 'init', 'perrymnmlist_insert_term', 0 );
-
+if ( ! function_exists( 'get_perrymnmlist_image_posted_on' ) ) :
+/**
+ * Generates HTML with meta information for the current post-date/time only, 
+ * originally created for use with the gallery post format, outputs to a string
+ *
+ * @since Perry Minimalist 1.0
+ */
+function get_perrymnmlist_image_posted_on( ) {
+    $return_string = sprintf( __( '
+            <small class="posted-on">
+                <time class="entry-date" datetime="%1$s" pubdate>%2$s<br />%3$s</time>
+            </small>', 'perrymnmlist' ),
+        esc_attr( get_the_time( 'c' ) ),
+        esc_html( get_the_date( 'd' ) ),
+        esc_html( get_the_date( 'M Y' ) )
+    );
+    return $return_string;
+}
+endif;
 
 
 
@@ -364,7 +401,7 @@ remove_action( 'wp_head', 'wp_generator' ); // Display the XHTML generator that 
 
 
 /**
- * Add infinite scroll to the theme
+ * Add javascript files to the theme
  */
 function perrymnmlist_theme_js(){
     wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
@@ -397,3 +434,69 @@ function perrymnmlist_infinite_scroll_js() {
     }
 }
 add_action( 'wp_footer', 'perrymnmlist_infinite_scroll_js',100 );
+
+
+
+/**
+ *  SHORTCODES
+ */
+ 
+/**
+ *  Obscures an email when wrapped with the [mailto][/mailto] shortcode
+ */
+function perrymnmlist_obfuscate( $atts , $content=null ) {
+   return antispambot($content);
+}
+add_shortcode('mailto', 'perrymnmlist_obfuscate');
+
+/**
+ * Displays a list of gallery posts by year
+ * 
+ * Reads through and lists the gallery posts in reverse date order collated
+ * by year. Can also be restricted to displaying certain categories only
+ */
+function perrymnmlist_display_galleries( $atts ){
+    // Default parameters
+    extract( shortcode_atts( array(
+        'cat' => ''
+    ), $atts));
+    query_posts( array(
+        'orderby' => 'date', 
+        'order' => 'DESC' , 
+        'category_name' => $cat
+    ));
+    $return_string = "<div class='albums'>";
+    if (have_posts()) :
+        while (have_posts()) : the_post();
+            $return_string .= "
+    <article id='post-" . get_the_ID() . "' " . get_post_class( '', get_the_ID() ) . ">
+        <header class='entry-header'>
+            <h4 class='entry-title'>
+                <a href='" . get_permalink() . "' 
+                    title='" . sprintf( esc_attr__( '%s', 'perrymnmlist' ), 
+                    the_title_attribute( 'echo=0' ) ) . "' rel='bookmark'>
+                    " . get_the_title() . "</a>
+            </h4>
+        </header><!-- .entry-header -->
+
+        <div class='entry'>
+            <a href='" . get_permalink() . "' 
+                title='" . sprintf( esc_attr__( '%s', 'perrymnmlist' ), 
+                the_title_attribute( 'echo=0' ) ) . "' rel='bookmark'>
+                " . get_the_post_thumbnail( get_the_ID(), 'thumbnail') . "
+            </a>
+        </div><!-- .entry -->
+
+        <footer class='entry-meta'>
+            " . get_perrymnmlist_image_posted_on('aligncenter') . "
+        </footer><!-- .entry-meta -->
+    </article><!-- #post-" . get_the_ID() . " -->";
+        endwhile;
+    endif;
+    $return_string .= "</div>";
+    wp_reset_query();
+    return $return_string;
+    
+}
+add_shortcode('gall_list', 'perrymnmlist_display_galleries');
+

@@ -23,28 +23,51 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class='entry-header'>
-			<p class="entry-title">
-			    <a href="<?php the_permalink(); ?>" 
-    			    title="<?php printf( esc_attr__( '%s', 'perrymnmlist' ), 
-    			    the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-    			    <?php the_title(); ?></a>
-			</p>
+            <h2 class="entry-title">
+                <a href="<?php the_permalink(); ?>" 
+                    title="<?php printf( esc_attr__( '%s', 'perrymnmlist' ), 
+                    the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+                    <?php the_title(); ?></a>
+            </h2>
+            <h3 class='entry-format'>Gallery</h3>
+            <?php //perrymnmlist_image_posted_on();  
+            edit_post_link( __( 'Edit', 'perrymnmlist' ), '<span class="edit-link alignright">', '</span>' ); ?>
 		</header><!-- .entry-header -->
 
 		<div class='entry'>
     		<a href="<?php the_permalink(); ?>" 
                 title="<?php printf( esc_attr__( '%s', 'perrymnmlist' ), 
                 the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-                <?php the_post_thumbnail('thumbnail'); ?>
+                <?php                
+                $images = get_children( array(
+                    'post_parent' => get_the_ID(),
+                    'post_status' => 'inherit',
+                    'post_type' => 'attachment',
+                    'post_mime_type' => 'image')
+                );
+                $total_images = count( $images );
+                $attachments = get_children( array(
+                    'post_parent' => get_the_ID(),
+                    'post_status' => 'inherit',
+                    'post_type' => 'attachment',
+                    'post_mime_type' => 'image',
+                    'order' => 'ASC',
+                    'orderby' => 'menu_order ID',
+                    'numberposts' => 6)
+                );
+                foreach ( $attachments as $thumb_id => $attachment ) {
+                    echo wp_get_attachment_image($thumb_id, 'thumbnail', array(
+                            'alt'   => trim(strip_tags( get_post_meta($thumb_id, '_wp_attachment_image_alt', true) )),
+                            'title' => trim(strip_tags( $attachment->post_title )),
+                        ) );
+                }
+                ?>
             </a>
-            <?php perrymnmlist_posted_on('aligncenter'); ?>
         </div><!-- .entry -->
 
-		<footer class="entry-meta textright">
-		<?php 
-			comments_number( '', '1 Comment', '% Comments' );
-            edit_post_link( __( 'Edit', 'perrymnmlist' ), 
-                '<span class="edit-link aligncenter textcenter">', '</span>' ); 
-        ?>
-		</footer><!-- .entry-meta -->
+		<footer class="entry-meta">
+	    <?php printf( _n( 'This gallery contains %1$s photo</a>.', 'This gallery contains %1$s photos</a>.', $total_images, 'perrymnmlist' ),
+                        number_format_i18n( $total_images )
+                    ); ?>
+        </footer><!-- .entry-meta -->
 	</article><!-- #post-<?php the_ID(); ?> -->

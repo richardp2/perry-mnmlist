@@ -8,6 +8,8 @@
  * @subpackage perry_mnmlist
  * @since Perry Minimalist 1.0
  */
+
+$login_referer = is_home() ? '/' : get_permalink();
 ?>
 
         </div><!-- #main -->
@@ -15,7 +17,7 @@
         <footer id='footer' role='contentinfo'>
             <div id='site-info'>
                 Copyright &copy; 2009-<?php echo date('Y'); ?> Rosie & Jim. All 
-                <a href='<?php echo wp_login_url( get_permalink() ); ?>' title=''
+                <a href='<?php echo wp_login_url( $login_referer ); ?>' title=''
                     class='secret'>Rights</a> Reserved. 
             </div>
 

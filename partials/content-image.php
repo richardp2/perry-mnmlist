@@ -31,12 +31,13 @@
         </header><!-- .entry-header -->
 
         <div class='entry'>
-            <div class='wp-caption'>
             <?php the_content(); ?>
-            </div>
         </div><!-- .entry -->
 
-        <footer class="entry-meta textright">
-            <?php comments_number( '', '1 Comment', '% Comments' ); ?>
+        <footer class="entry-meta">
+            <?php the_tags( '<span class="tag-links"><span class="entry-utility-prep entry-utility-prep-tag-links">' . 
+                            __('Tagged ', 'perrymnmlist' ) . '</span>', ", ", 
+                            "</span>" ) ?>
+            <div class='comments'><?php comments_number( '0', '1', '%' ); ?></div>
         </footer><!-- .entry-meta -->
     </article><!-- #post-<?php the_ID(); ?> -->
