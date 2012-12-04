@@ -8,23 +8,26 @@
 -------------------------------------------------------------- */   
 
 
-body { background: #fff; }
+body { background: #fff; color:#505050; }
 body, input, textarea { color: #111; line-height: 1.5; }
 
 
 /* Headings
 -------------------------------------------------------------- */
 
-h1,h2,h3,h4,h5,h6 { font-weight: normal; clear: both; }
+h1,h2,h3,h4,h5,h6 { padding: 5px 0 10px 0; font-weight: bold; clear: both; }
 hr { background-color: #999; border:0; height: 1px; margin-bottom: 1.5em; }
 
 
 /* Text elements
 -------------------------------------------------------------- */
 
+a, a:link, a:visited { color:#21759b; }
+a:hover { color: #d54e21; }
 p { margin-bottom: 1.5em; }
-ul { margin: 0 0 1.5em 2.5em; }
-ol { margin: 0 0 1.5em 2.5em; }
+ul { margin: 0 0 1.5em 2.5em; padding: .5em 0em 1em 3.2em; }
+li { line-height: 160%; padding: 6px 0 0 0; }
+ol { margin: 0 0 1.5em 2.5em; padding: .5em 0em 0em 3.2em; }
 ol { list-style-type: decimal; }
 ol ol { list-style:upper-alpha; }
 ol ol ol { list-style:lower-roman; }
@@ -34,17 +37,25 @@ dl { margin:0 1.5em; }
 dt { font-weight: bold; }
 dd { margin-bottom: 1.5em; }
 strong { font-weight: bold; }
-cite, em, i { font-style: italic; }
-blockquote { margin: 0 3em; }
+blockquote, cite, em, i { font-style: italic; }
+blockquote { border-left: 2px solid #dedede; margin: 0px; padding: 0 12px 0 12px;  }
 blockquote em, blockquote i, blockquote cite { font-style: normal; }
 pre { font: 11px Monaco, monospace; line-height: 1.5; margin-bottom: 1.5em; }
 code { font: 11px Monaco, monospace; }
-abbr, acronym { border-bottom: 1px dotted #666; cursor: help; }
+abbr, acronym { border-bottom: 1px dotted #21759b; cursor: help; }
+del { color: #d54e21; }
 ins { text-decoration: none; }
 sup, sub { height: 0; line-height: 1; vertical-align: baseline; position: relative; }
 sup { bottom: 1ex; }
 sub { top: .5ex; }
 
+
+/* Other elements
+-------------------------------------------------------------- */
+
+img { border:none; }
+img a { border:none; }
+input[type="text"],textarea { border: 1px solid #c0c0c0; padding: 2px; }
 
 /*
 

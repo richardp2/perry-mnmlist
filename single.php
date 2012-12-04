@@ -1,21 +1,30 @@
 <?php
+/* SVN FILE: $Id$*/
 /**
- * The Template for displaying all single posts.
+ * Template Name: Single
  *
- * @package WordPress
- * @subpackage perry_mnmlist
- * @since Perry Minimalist 1.0
+ * This is the template for displaying full, single posts
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package        Perry Minimalist
+ * @subpackage     Templates
+ * @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ * @since          Release 1.1.0
+ * @version        $Rev$
+ * @modifiedby     $LastChangedBy$
+ * @lastmodified   $Date$
+ *
+ * @todo           ToDo List
+ * 
+ * @change         Rev 16 - Removed references to wide-container/wide content
+ *                          for galleries
+ *                 Rev 15 - Wrapped page in a 'section' for clarity
  */
 
 get_header(); ?>
 
-        <?php if ( has_post_format( 'gallery' )) : ?>
-        <section id='wide-primary'>
-            <div id="wide-content" role="main"> 
-        <?php else: ?>
         <section id='primary'>
             <div id="content" role="main">
-        <?php endif; ?>
                 <nav class='breadcrumb'>
                     <?php if(function_exists('bcn_display')) { bcn_display(); } ?>
                 </nav>
@@ -42,8 +51,8 @@ get_header(); ?>
                 </nav><!-- nav -->
     
                 <?php comments_template( '', true ); ?>
-            </div><!-- #content/#wide-content -->
-        </section><!-- #primary/#wide-primary -->
+            </div><!-- #content -->
+        </section><!-- #primary -->
 
-<?php if ( !has_post_format( 'gallery' )) { get_sidebar(); } ?>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

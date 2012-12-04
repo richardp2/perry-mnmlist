@@ -19,7 +19,7 @@
         			<h2 class='entry-title'>Archives</h2>
         			<div class="entry">
         
-                        <table id=arc>
+                        <table id='arc'>
         <?php
         $query = "SELECT YEAR(post_date) AS `year`, 
                         MONTH(post_date) as `month`, 
@@ -51,14 +51,14 @@
               $last_month = 0;
         ?>
                             <tr class='year'>
-                                <th><br /><br /><?php echo $arcresult->year; ?></th>
+                                <th><?php echo $arcresult->year; ?></th>
                             </tr>
         <?php
             }
             if ($month != $last_month) {
               $last_month = $month;
         ?>
-                            <tr class='archive'>
+                            <tr class='month'>
                                 <th><?php echo $wp_locale->get_month($arcresult->month); ?></th>
                                 <td></td>
                             </tr>

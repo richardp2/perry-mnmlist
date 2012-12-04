@@ -3,11 +3,11 @@ LAYOUT: Two-Column (Right)
 DESCRIPTION: Two-column fixed-width layout with one sidebar right of content
 */
 
-#wrapper { margin: 0 auto; width: 810px; }
-#primary { float: left; margin: 0 -220px 0 0; width: 100%; }
+#wrapper { margin: 0 auto; width: 820px; }
+#primary { float: left; margin: 0 -240px 40px 0; width: 100%; }
 #content { margin: 0 225px 0 0; padding: 20px; }
-#secondary { clear: right; float: right; overflow: hidden; padding: 20px 20px 20px 0; width: 200px; }
-#footer { clear: both; }
+#secondary { clear: right; float: right; overflow: hidden; padding: 20px 0; width: 200px; }
+#footer { position: fixed; bottom: 0; width: 820px; }
 
 
 /*

@@ -15,6 +15,7 @@
  *
  *  @todo           ToDo List
  *                  - 
+ *  @change         Rev 16 - Changed post thumbnail size to summary-image
  */
 ?>
 
@@ -35,7 +36,7 @@
             <?php if ( has_post_thumbnail() ) : ?>
             <a href="<?php the_permalink(); ?>" 
                 title="<?php the_title_attribute( 'echo=0' ); ?>" rel="bookmark">
-                <?php the_post_thumbnail(array(550,550), array('class' => 'aligncenter')); ?>
+                <?php the_post_thumbnail( 'summary-image' ); ?>
             </a>
             <?php endif; ?>
         </div><!-- .entry -->

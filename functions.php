@@ -6,43 +6,19 @@
  * are used in the theme as custom template tags. Others are attached to action and
  * filter hooks in WordPress to change core functionality.
  *
- * The first function, perrymnmlist_setup(), sets up the theme by registering support
- * for various features in WordPress, such as post thumbnails, navigation menus, and the like.
+ *  @package        Perry Minimalist
+ *  @subpackage     Functions
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 1.0.0
+ *  @version        $Rev$
+ *  @modifiedby     $LastChangedBy$
+ *  @lastmodified   $Date$
  *
- * When using a child theme (see http://codex.wordpress.org/Theme_Development and
- * http://codex.wordpress.org/Child_Themes), you can override certain functions
- * (those wrapped in a function_exists() call) by defining them first in your child theme's
- * functions.php file. The child theme's functions.php file is included before the parent
- * theme's file, so the child theme functions would be used.
- *
- * Functions that are not pluggable (not wrapped in function_exists()) are instead attached
- * to a filter or action hook. The hook can be removed by using remove_action() or
- * remove_filter() and you can attach your own function to the hook.
- *
- * We can remove the parent theme's hook only after it is attached, which means we need to
- * wait until setting up the child theme:
- *
- * <code>
- * add_action( 'after_setup_theme', 'my_child_theme_setup' );
- * function my_child_theme_setup() {
- *     // We are providing our own filter for excerpt_length (or using the unfiltered value)
- *     remove_filter( 'excerpt_length', 'perrymnmlist_excerpt_length' );
- *     ...
- * }
- * </code>
- *
- * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
- *
- * @package WordPress
- * @subpackage perry_mnmlist
- * @since Perry Minimalist 1.0
+ *  @todo           ToDo List
+ *                  - 
+ *  @change         Rev 16 - Added post thumbnail size (summary-image) of 500x500
+ *                         - Remove content width setting
  */
-
-/**
- * Set the content width based on the theme's design and stylesheet.
- */
-if ( ! isset( $content_width ) )
-	$content_width = 584;
 
 /**
  * Tell WordPress to run perrymnmlist_setup() when the 'after_setup_theme' hook is run.
@@ -86,6 +62,12 @@ function perrymnmlist_setup() {
 
 	// This theme uses Featured Images (also known as post thumbnails) for per-post/per-page Custom Header images
 	add_theme_support( 'post-thumbnails' );
+    add_image_size( 'summary-image', 500, 500 ); 
+    
+    /*add_theme_support( 'infinite-scroll', array(
+        'container'  => 'primary'
+    ) );*/
+    
 }
 endif; // perrymnmlist_setup
 
@@ -420,7 +402,7 @@ function perrymnmlist_infinite_scroll_js() {
     var infinite_scroll = {
         loading: {
             img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
-            msgText: "<?php _e( 'Loading the next set of posts...', 'perrymnmlist' ); ?>",
+            msgText: "<?php _e( 'Loading...', 'perrymnmlist' ); ?>",
             finishedMsg: "<?php _e( 'All posts loaded.', 'perrymnmlist' ); ?>"
         },
         "nextSelector":"#nav-below .nav-previous a",
