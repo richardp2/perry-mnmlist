@@ -30,8 +30,10 @@
                     <?php the_title(); ?></a>
             </h2>
             <h3 class='entry-format'>Gallery</h3>
-            <?php //perrymnmlist_image_posted_on();  
-            edit_post_link( __( 'Edit', 'perrymnmlist' ), '<span class="edit-link alignright">', '</span>' ); ?>
+            <?php 
+            perrymnmlist_posted_on();  
+            edit_post_link( __( 'Edit', 'perrymnmlist' ), '<span class="edit-link alignright">', '</span>' ); 
+            ?>
 		</header><!-- .entry-header -->
 
 		<div class='entry'>
@@ -69,5 +71,9 @@
 	    <?php printf( _n( 'This gallery contains %1$s photo</a>.', 'This gallery contains %1$s photos</a>.', $total_images, 'perrymnmlist' ),
                         number_format_i18n( $total_images )
                     ); ?>
+        <?php if ( have_comments() ) : ?>
+            <span class='point'></span>
+            <div class='comments'><?php comments_number( '', '1', '%' ); ?></div>
+        <?php endif; ?>
         </footer><!-- .entry-meta -->
 	</article><!-- #post-<?php the_ID(); ?> -->

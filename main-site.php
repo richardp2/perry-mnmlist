@@ -57,7 +57,7 @@ get_header(); ?>
                     <ul class='blog-list'>
                     <?php $posts = get_posts($args); ?>
                     <?php foreach ( $posts as $post ) : ?>
-                        <li class='entry-title'>
+                        <li>
                             <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s', 'perrymnmlist' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
                         </li>
                     <?php endforeach; ?>

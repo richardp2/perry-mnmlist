@@ -1,17 +1,17 @@
 <?php
-/* SVN FILE: $Id$ */
+/* SVN FILE: $Id: summary.php 15 2012-11-08 14:39:59Z richard@perrymail.me.uk $ */
 /**
- *  A part theme for displaying content summaries on the home/blog page
+ *  A part theme for displaying aside summaries
  *
- *  Displays the default summary including a post thumbnail, if one exists
+ *  Displays asides as a full post, not just an excerpt
  *
  *  @package        Perry Minimalist
  *  @subpackage     Partials
  *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
- *  @since          Release 1.0.0
- *  @version        $Rev$
- *  @modifiedby     $LastChangedBy$
- *  @lastmodified   $Date$
+ *  @since          Release 1.2.0
+ *  @version        $Rev: 15 $
+ *  @modifiedby     $LastChangedBy: richard@perrymail.me.uk $
+ *  @lastmodified   $Date: 2012-11-08 14:39:59 +0000 (Thu, 08 Nov 2012) $
  *
  *  @todo           ToDo List
  *                  - 
@@ -31,21 +31,12 @@
             <?php
             endif; 
             perrymnmlist_posted_on(); 
-            perrymnmlist_meta();
 			edit_post_link( __( 'Edit', 'perrymnmlist' ), '<span class="edit-link alignright">', '</span>' ); 
 			?>
 		</header><!-- .entry-header -->
 
 		<div class='entry'>
-		<?php
-            if ( has_post_thumbnail() ) {
-                $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');
-                echo '<a href="' . $large_image_url[0] . '" title="' . the_title_attribute('echo=0') . '" >';
-                the_post_thumbnail('thumbnail', array('class' => 'alignleft'));
-                echo '</a>';
-            }
-            the_excerpt(); 
-        ?>
+		<?php the_content(); ?>
         </div><!-- .entry -->
 
 		<footer class="entry-meta">

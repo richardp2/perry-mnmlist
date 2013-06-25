@@ -34,7 +34,7 @@
 <body <?php body_class(); ?>>
 <div id='wrapper' class='hfeed'>
    <header id='header' role='banner' class='textcenter' style='background: url(<?php perrymnmlist_header_image(); ?>) no-repeat center top; line-height: 0; '>
-         <hgroup style='background: url(<?php echo get_stylesheet_directory_uri() ?>/images/overlay.png) no-repeat center center; line-height: 0; '>
+         <hgroup style='background: url(<?php echo get_stylesheet_directory_uri() ?>/images/overlay.png) center center; line-height: 0; '>
             <h1 id='site-title' >
                <span>
                   <a href="<?php echo esc_url( home_url( '/' ) ); ?>" 

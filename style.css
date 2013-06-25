@@ -3,7 +3,7 @@ Theme Name: Perry Minimalist
 Author: Richard Perry
 Author URI: http://richard.perry-online.me.uk/
 Description: The latest theme for the Perry Travel blogs in anticipation of potential future blogs being added to the family. The theme is basically a simplified and b******ised TwentyEleven theme, however, instead of using a child theme structure, the theme was used as a base for a new theme.
-Version: 0.1
+Version: 1.1.1
 License: GNU General Public License
 License URI: license.txt
 Tags: light, white, gray, two-columns, right-sidebar, fixed-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
@@ -66,21 +66,22 @@ Tags: light, white, gray, two-columns, right-sidebar, fixed-width, custom-header
 /* =Content
 -------------------------------------------------------------- */
 
-.blog-list { list-style-type: none; padding: 0.5em 5px 1em; }
+.blog-list { list-style-type: none; padding: 0.5em 5px 2em; margin-left: 0; }
+.blog-list li { padding: 3px 0; }
 .entry a,.entry a:link{ text-decoration:none; }
 .entry a:visited { text-decoration:none; }
 .entry a:hover,.entry-title a:hover{ border-bottom: 1px solid; text-decoration:none; }
 .entry-header .entry-format { position: absolute; top: 0; padding: 0; margin: 0; }
 .entry-title { padding-top: 18px;}
 .entry-utility-prep { border-bottom: 1px solid; }
-.post, .breadcrumb, .postnav, #comments, .page { margin-bottom: 20px; clear: both; 
+.post, .breadcrumb, .postnav, #comments, .page { margin-bottom: 30px; clear: both; 
     position: relative; }
-.post .entry-date { position: absolute; left: -70px; top: 0; border-right: 1px solid; 
-    padding: 14px 6px 17px 0; text-align: center; width: 40px; }
-.post .entry-meta .comments { position:absolute; left: -70px; top: 80px;
-    border-right: 1px solid; line-height: 18px; height: 24px; padding: 14px 0 17px 8px;
-    width: 38px; }
-.post .entry-meta .comments .dsq-postid {
+.post .entry-date { position: absolute; left: -70px; top: 15px; border-right: 1px solid; 
+    padding: 6px 6px 6px 0; text-align: center; width: 40px; }
+.post .entry-meta .comments {
+    position: absolute;
+    top: 10px;
+    right: 0px;
     background-image: url(images/comments_counter.png); 
     background-repeat: no-repeat;
     background-position: 0 0; 
@@ -94,6 +95,8 @@ Tags: light, white, gray, two-columns, right-sidebar, fixed-width, custom-header
     padding: 8px 5px 0 3px; 
     margin: 10px auto; 
 }
+
+.half { display: inline-table; margin-right: 30px; width: 45%; }
 
 
 /* =Comments
@@ -188,6 +191,31 @@ body.single article.format-gallery {
 
 
 
+
+/* Link Styling
+-------------------------------------------------------------- */
+article.format-link { }
+article.format-link .icon {
+    background-position: -89px -1px;
+    background-image: url(images/menu.png);
+    display: inline-block;
+    height: 24px;
+    width: 28px;
+}
+article.format-link .link-tag {
+    background: #dedede;
+    border: 1px solid #aeaeae;
+    -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+    -moz-box-shadow: 3px 3px 4px #505050; -webkit-box-shadow: 3px 3px 4px #505050;
+    box-shadow: 3px 3px 4px #505050;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#505050')'; 
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#505050');
+    line-height: 40px;
+    margin: 10px 10px 20px;
+    padding: 5px 10px;
+}
+
+
 /* Twitter Widget
 -------------------------------------------------------------- */
 .widget-area .textwidget,
@@ -241,8 +269,7 @@ th,
 .entry a:hover, 
 .entry-utility-prep, 
 .entry-title a:hover, 
-.post .entry-date, 
-.post .entry-meta .comments, 
+.post .entry-date,  
 .widget-area h3,.wp-caption { border-color: #dedede; }
 
 

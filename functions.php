@@ -18,7 +18,10 @@
  *                  - 
  *  @change         Rev 16 - Added post thumbnail size (summary-image) of 500x500
  *                         - Remove content width setting
+ *                  Rev 17 - Added content width setting back in (I know what it does now)
  */
+ 
+ if ( ! isset( $content_width ) ) $content_width = 500;
 
 /**
  * Tell WordPress to run perrymnmlist_setup() when the 'after_setup_theme' hook is run.
@@ -64,12 +67,36 @@ function perrymnmlist_setup() {
 	add_theme_support( 'post-thumbnails' );
     add_image_size( 'summary-image', 500, 500 ); 
     
-    /*add_theme_support( 'infinite-scroll', array(
-        'container'  => 'primary'
-    ) );*/
+    // allow html in category and taxonomy descriptions
+    remove_filter( 'pre_term_description', 'wp_filter_kses' );
+    remove_filter( 'pre_link_description', 'wp_filter_kses' );
+    remove_filter( 'pre_link_notes', 'wp_filter_kses' );
+    remove_filter( 'term_description', 'wp_kses_data' );
+    
+    add_theme_support( 'infinite-scroll', array(
+        'container' => 'content',
+        'render'    => 'perrymnmlist_infinite_scroll_render'
+    ) );
     
 }
 endif; // perrymnmlist_setup
+
+/**
+ * Set the code to be rendered on for calling posts,
+ * hooked to template parts when possible.
+ *
+ * Note: must define a loop.
+ */
+function perrymnmlist_infinite_scroll_render() {
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            get_template_part( '/partials/summary', get_post_format() ); 
+        } 
+    } else { 
+        get_template_part( '/partials/content', 'noposts' ); 
+    } 
+}
 
 
 /**
@@ -78,13 +105,14 @@ endif; // perrymnmlist_setup
 function perrymnmlist_excerpt_length( $length ) {
 	return 125;
 }
-add_filter( 'excerpt_length', 'perrymnmlist_excerpt_length' );
+add_filter( 'excerpt_length', 'perrymnmlist_excerpt_length', 9999 );
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with a custom Read More link.
  */
 function perrymnmlist_excerpt_more( $more ) {
-	return '...<br /><a href="'. esc_url( get_permalink() ) . '" class="alignright">' . __( 'Read more', 'perrymnmlist' ) . '</a>';
+    global $post;
+	return '...<br /><a href="'. get_permalink($post->ID) . '" class="alignright">' . __( 'Read more', 'perrymnmlist' ) . '</a>';
 }
 add_filter( 'excerpt_more', 'perrymnmlist_excerpt_more' );
 
@@ -94,13 +122,13 @@ add_filter( 'excerpt_more', 'perrymnmlist_excerpt_more' );
  * To override this link in a child theme, remove the filter and add your own
  * function tied to the get_the_excerpt filter hook.
  */
-function perrymnmlist_custom_excerpt_more( $output ) {
-	if ( has_excerpt() && ! is_attachment() ) {
-		$output .= perrymnmlist_excerpt_more();
-	}
-	return $output;
-}
-add_filter( 'get_the_excerpt', 'perrymnmlist_custom_excerpt_more' );
+//function perrymnmlist_custom_excerpt_more( $output ) {
+//	if ( has_excerpt() && ! is_attachment() ) {
+//		$output .= perrymnmlist_excerpt_more();
+//	}
+//	return $output;
+//}
+//add_filter( 'get_the_excerpt', 'perrymnmlist_custom_excerpt_more' );
 
 
 
@@ -235,53 +263,50 @@ function perrymnmlist_posted_on( ) {
 	printf( __( '
             <small class="posted-on">
                 <time class="entry-date" datetime="%1$s" pubdate>%2$s<br />%3$s</time>
-                <span class="meta-prep meta-prep-author">%4$s</span>
-                <span class="author vcard">
-                    <a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s, </a>
-                </span>
-                <span class="meta-categories">in %8$s</span>
             </small>', 'perrymnmlist' ),
         esc_attr( get_the_time( 'c' ) ),
         esc_html( get_the_date( 'd' ) ),
-        esc_html( get_the_date( 'M Y' ) ),
+        esc_html( get_the_date( 'M Y' ) )
+	);
+}
+endif;
+
+if ( ! function_exists( 'perrymnmlist_meta' ) ) :
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ * Create your own perrymnmlist_posted_on to override in a child theme
+ *
+ * @since Perry Minimalist 1.0
+ */
+function perrymnmlist_meta( ) {
+    printf( __( '
+            <small class="entry-meta">
+                <span class="meta-prep meta-prep-author">%1$s</span>
+                <span class="author vcard">
+                    <a class="url fn n" href="%2$s" title="%3$s" rel="author">%4$s, </a>
+                </span>
+                <span class="meta-categories">in %5$s</span>
+            </small>', 'perrymnmlist' ),
         esc_attr( 'Written by ', 'perrymnmlist' ),
         esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
         esc_attr( sprintf( 'View all articles by %s',  get_the_author() ) ),
         get_the_author(),
         get_the_category_list( ', ' )
-	);
-}
-endif;
-
-
-
-if ( ! function_exists( 'perrymnmlist_image_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time only, 
- * originally created for use with the gallery post format
- *
- * @since Perry Minimalist 1.0
- */
-function perrymnmlist_image_posted_on( ) {
-    printf( __( '
-            <small class="posted-on">
-                <time class="entry-date" datetime="%1$s" pubdate>%2$s<br />%3$s</time>
-            </small>', 'perrymnmlist' ),
-        esc_attr( get_the_time( 'c' ) ),
-        esc_html( get_the_date( 'd' ) ),
-        esc_html( get_the_date( 'M Y' ) )
     );
 }
 endif;
 
-if ( ! function_exists( 'get_perrymnmlist_image_posted_on' ) ) :
+
+
+
+if ( ! function_exists( 'get_perrymnmlist_posted_on' ) ) :
 /**
  * Generates HTML with meta information for the current post-date/time only, 
  * originally created for use with the gallery post format, outputs to a string
  *
  * @since Perry Minimalist 1.0
  */
-function get_perrymnmlist_image_posted_on( ) {
+function get_perrymnmlist_posted_on( ) {
     $return_string = sprintf( __( '
             <small class="posted-on">
                 <time class="entry-date" datetime="%1$s" pubdate>%2$s<br />%3$s</time>
@@ -293,7 +318,6 @@ function get_perrymnmlist_image_posted_on( ) {
     return $return_string;
 }
 endif;
-
 
 
 if ( ! function_exists( 'perrymnmlist_header_image' ) ) :
@@ -392,31 +416,6 @@ function perrymnmlist_theme_js(){
     }
 }
 add_action('wp_enqueue_scripts', 'perrymnmlist_theme_js');
-
-/**
- * Infinite Scroll
- */
-function perrymnmlist_infinite_scroll_js() {
-    if( ! is_singular() ) { ?>
-    <script>
-    var infinite_scroll = {
-        loading: {
-            img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
-            msgText: "<?php _e( 'Loading...', 'perrymnmlist' ); ?>",
-            finishedMsg: "<?php _e( 'All posts loaded.', 'perrymnmlist' ); ?>"
-        },
-        "nextSelector":"#nav-below .nav-previous a",
-        "navSelector":"#nav-below",
-        "itemSelector":"article",
-        "contentSelector":"#content"
-    };
-    jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
-    </script>
-    <?php
-    }
-}
-add_action( 'wp_footer', 'perrymnmlist_infinite_scroll_js',100 );
-
 
 
 /**

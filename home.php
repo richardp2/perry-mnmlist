@@ -50,7 +50,6 @@ get_header(); ?>
                 } else {
                     get_template_part( '/partials/content', 'noposts' );
                 }
-                perrymnmlist_content_nav( 'nav-below' ); 
                 ?>
             </div><!-- #content -->
         </section><!-- #primary -->

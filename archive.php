@@ -40,6 +40,10 @@ get_header(); ?>
         
                     <?php 
                         if ( have_posts() ) {
+                            if ( is_category() ) {
+                                global $cat;
+                                echo category_description( $cat );
+                            }
                             while ( have_posts() ) {
                                 the_post();
                                 get_template_part( '/partials/summary', get_post_format() ); 
@@ -48,7 +52,6 @@ get_header(); ?>
                             get_template_part( '/partials/content', 'noposts' ); 
                         } 
                         
-                        perrymnmlist_content_nav( 'nav-below' );
                     ?>
                 
                 </div><!-- #content -->

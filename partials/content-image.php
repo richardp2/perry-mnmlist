@@ -26,6 +26,7 @@
                 <?php the_title(); ?>
             </a></h2>
             <?php perrymnmlist_posted_on(); ?>
+            <?php perrymnmlist_meta(); ?>
             <?php edit_post_link( __( 'Edit', 'perrymnmlist' ), 
                 '<span class="edit-link alignright">', '</span>' ); ?>
         </header><!-- .entry-header -->
