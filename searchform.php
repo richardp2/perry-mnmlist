@@ -1,18 +1,19 @@
 <?php
-/* SVN FILE: $Id$ */
 /**
  *  The searchform template file.
  *
  *  @package        Perry Minimalist
  *  @subpackage     Content
  *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
- *  @since          Release 1.1.0
- *  @version        $Rev$
- *  @modifiedby     $LastChangedBy$
- *  @lastmodified   $Date: 2012-09-20 11:45:48 +0100 (Thu, 20 Sep 2012) $
+ *  @since          Release 0.1.0
+ *  @version        0.2
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
  *
  *  @todo           ToDo List
- *                  -
+ *                  -  
+ * 
+ *  @change         v0.2 - updated file header information
  */
 ?>
                 <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">

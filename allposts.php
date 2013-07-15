@@ -1,10 +1,26 @@
 <?php
 /**
- * Template Name: All Post Archive
- * Descritption:  A page template to display all posts in a list
- * @package WordPress
- * @subpackage perry_mnmlist
- * @since Perry Minimalist 1.0
+ *  Template Name: All Post Archive
+ *
+ *  A page template to display all posts in a list
+ *
+ *  @package        Perry Minimalist
+ *  @subpackage     Templates
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 0.1.0
+ *  @version        0.2.3
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
+ *
+ *  @todo           ToDo List
+ *                  -  
+ * 
+ *  @change         v0.2.3 - Converted version control to Git
+ *                         - updated file information comments
+ *                  v0.2.2 - Removed surplus <br> tags
+ *                  v0.2.1 - Amended for better HTML5 support
+ *                  v0.2.0 - Reformatted the output
+ *                  v0.1.0 - Initial import into SVN
  */
 ?>
 

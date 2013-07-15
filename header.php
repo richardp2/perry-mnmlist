@@ -1,13 +1,23 @@
 <?php
 /**
- * The Header for our theme.
+ *  The Header for our theme.
  *
- * Displays all of the <head> section and everything up till <div id="main">
+ *  Displays all of the <head> section and everything up till <div id="main">
  *
- * @package WordPress
- * @subpackage perry_mnmlist
- * @since Perry Minimalist 1.0
+ *  @package        Perry Minimalist
+ *  @subpackage     Templates
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 0.1.0
+ *  @version        0.6
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
+ *
+ *  @todo           ToDo List
+ *                  -  
+ * 
+ *  @change         v0.6 - updated file header information
  */
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

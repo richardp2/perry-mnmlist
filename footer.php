@@ -1,12 +1,25 @@
 <?php
 /**
- * The template for displaying the footer.
+ *  The template for displaying the footer.
  *
- * Contains the closing of the id=main div and all content after
+ *  Contains the closing of the id=main div and all content after
  *
- * @package WordPress
- * @subpackage perry_mnmlist
- * @since Perry Minimalist 1.0
+ *  @package        Perry Minimalist
+ *  @subpackage     Templates
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 0.1.0
+ *  @version        0.2.2
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
+ *
+ *  @todo           ToDo List
+ *                  -  
+ * 
+ *  @change         v0.2.2 - Converted version control to Git
+ *                         - Updated file information comments
+ *                  v0.2.1 - Adjusted link to login page to redirect to referrer
+ *                  v0.2.0 - Added link to login page
+ *                  v0.1.0 - Initial import into SVN
  */
 
 $login_referer = is_home() ? '/' : get_permalink();

@@ -1,24 +1,25 @@
 <?php
-/* SVN FILE: $Id$*/
 /**
- * Template Name: Single
+ *  Template Name: Single
  *
- * This is the template for displaying full, single posts
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *  This is the template for displaying full, single posts
+ *  Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package        Perry Minimalist
- * @subpackage     Templates
- * @copyright      Richard Perry <http: //www.perry-online.me.uk/>
- * @since          Release 1.1.0
- * @version        $Rev$
- * @modifiedby     $LastChangedBy$
- * @lastmodified   $Date$
+ *  @package        Perry Minimalist
+ *  @subpackage     Templates
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 0.1.0
+ *  @version        0.4
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
  *
- * @todo           ToDo List
+ *  @todo           ToDo List
+ *                  - 
  * 
- * @change         Rev 16 - Removed references to wide-container/wide content
- *                          for galleries
- *                 Rev 15 - Wrapped page in a 'section' for clarity
+ *  @change         v0.4 - updated file header information
+ *                  svn Rev 16 - Removed references to wide-container/wide 
+ *                               content for galleries
+ *                  svn Rev 15 - Wrapped page in a 'section' for clarity
  */
 
 get_header(); ?>

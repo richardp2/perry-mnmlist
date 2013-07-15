@@ -1,4 +1,24 @@
 <?php
+/**
+ * Theme Options File
+ *
+ * This file is used to generate a theme options page to give the end user
+ * more control over how the theme looks from the front end
+ *
+ * @package        Perry Minimalist
+ * @subpackage     Templates
+ * @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ * @since          Release 0.1.0
+ * @version        0.1
+ * @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ * @lastmodified   15 July 2013
+ *
+ * @todo           ToDo List
+ *                 - Review template code and rewrite to suit
+ * 
+ * @change         v0.1 - file created and populated with template code
+ *                      - updated file header information
+ */
 
 add_action( 'admin_init', 'perrymnmlist_theme_options_init' );
 add_action( 'admin_menu', 'perrymnmlist_theme_options_add_page' );

@@ -1,21 +1,23 @@
 <?php
-/* SVN FILE: $Id$*/
 /**
- * Template Name: Home
+ *  Template Name: Home
  *
- * This is the home page template for displaying the main home page at the top
- * followed by the blog posts immediately after.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *  This is the home page template for displaying the main home page at the top
+ *  followed by the blog posts immediately after.
+ *  Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * 
+ *  @package        Perry Minimalist
+ *  @subpackage     Templates
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 0.1.0
+ *  @version        0.2
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
  *
- * @package        Perry Minimalist
- * @subpackage     Page Templates
- * @copyright      Richard Perry <http: //www.perry-online.me.uk/>
- * @since          Release 1.1.0
- * @version        $Rev$
- * @modifiedby     $LastChangedBy$
- * @lastmodified   $Date$
- *
- * @todo           ToDo List
+ *  @todo           ToDo List
+ *                  -  
+ * 
+ *  @change         v0.2 - updated file header information
  */
 
 get_header(); ?>

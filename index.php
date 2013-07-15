@@ -1,15 +1,25 @@
 <?php
 /**
- * The main template file.
+ *  The main template file.
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *  This is the most generic template file in a WordPress theme
+ *  and one of the two required files for a theme (the other being style.css).
+ *  It is used to display a page when nothing more specific matches a query.
+ *  E.g., it puts together the home page when no home.php file exists.
+ *  Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package WordPress
- * @subpackage perry_mnmlist
+ *  @package        Perry Minimalist
+ *  @subpackage     Templates
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 0.1.0
+ *  @version        0.2
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
+ *
+ *  @todo           ToDo List
+ *                  - 
+ * 
+ *  @change         v0.2 - updated file header information
  */
 
 get_header(); ?>

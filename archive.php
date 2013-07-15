@@ -1,15 +1,34 @@
 <?php
 /**
- * The template for displaying Archive pages.
+ *  The template for displaying Archive pages.
  *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
+ *  Used to display archive-type pages if nothing more specific matches a query.
+ *  For example, puts together date-based pages if no date.php file exists.
  *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *  Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package WordPress
- * @subpackage perry_mnmlist
- * @since Perry Minimalist 1.0
+ *  @package        Perry Minimalist
+ *  @subpackage     Templates
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 0.1.0
+ *  @version        0.2.5
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
+ *
+ *  @todo           ToDo List
+ *                  -  
+ * 
+ *  @change         v0.2.5 - Converted version control to Git
+ *                         - updated file information comments
+ *                  v0.2.4 - Added a category description
+ *                         - Removed nav links at the bottom of the page
+ *                  v0.2.3 - Wrapped template in section #primary for better 
+ *                           HTML5 support
+ *                  v0.2.2 - Changed loop to look in partials folder to suit
+ *                           modified theme file structure
+ *                  v0.2.1 - Changed loop to look for summary partial
+ *                  v0.2.0 - Added loop
+ *                  v0.1.0 - Initial import into SVN
  */
 
 get_header(); ?>

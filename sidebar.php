@@ -1,18 +1,19 @@
 <?php
-/* SVN FILE: $Id: sidebar.php 17 2012-09-20 10:45:48Z richard@perry-online.me.uk $ */
 /**
  *  The sidebar template file.
  *
  *  @package        Perry Minimalist
  *  @subpackage     Templates
  *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
- *  @since          Release 1.1.0
- *  @version        $Rev: 17 $
- *  @modifiedby     $LastChangedBy: richard@perry-online.me.uk $
- *  @lastmodified   $Date: 2012-09-20 11:45:48 +0100 (Thu, 20 Sep 2012) $
+ *  @since          Release 0.1.0
+ *  @version        0.3
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
  *
  *  @todo           ToDo List
- *                  -
+ *                  - 
+ * 
+ *  @change         v0.3 - updated file header information
  */
 ?>
             <?php if ( is_active_sidebar('sidebar-1') ) : ?>

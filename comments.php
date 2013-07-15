@@ -1,16 +1,28 @@
 <?php
 /**
- * The template for displaying Comments.
+ *  The template for displaying Comments.
  *
- * The area of the page that contains both current comments
- * and the comment form. The actual display of comments is
- * handled by a callback to perrymnmlist_comment() which is
- * located in the functions.php file.
+ *  The area of the page that contains both current comments
+ *  and the comment form. The actual display of comments is
+ *  handled by a callback to perrymnmlist_comment() which is
+ *  located in the functions.php file.
  *
- * @package WordPress
- * @subpackage perry_mnmlist
- * @since Perry Minimalist 1.0
+ *  @package        Perry Minimalist
+ *  @subpackage     Templates
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 0.1.0
+ *  @version        0.2.0
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
+ *
+ *  @todo           ToDo List
+ *                  -  
+ * 
+ *  @change         v0.2.0 - Converted version control to Git
+ *                         - updated file information comments
+ *                  v0.1.0 - Initial import into SVN
  */
+
 ?>
 	<div id="comments">
 	<?php if ( post_password_required() ) : ?>

@@ -1,11 +1,36 @@
 <?php
 /**
- * Perry Minimalist functions and definitions
+ *  Perry Minimalist functions and definitions
  *
- * Sets up the theme and provides some helper functions. Some helper functions
- * are used in the theme as custom template tags. Others are attached to action and
- * filter hooks in WordPress to change core functionality.
+ *  Sets up the theme and provides some helper functions. Some helper functions
+ *  are used in the theme as custom template tags. Others are attached to action and
+ *  filter hooks in WordPress to change core functionality.
  *
+ *  @package        Perry Minimalist
+ *  @subpackage     Templates
+ *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
+ *  @since          Release 0.1.0
+ *  @version        0.2.5
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
+ *
+ *  @todo           ToDo List
+ *                  -  
+ * 
+ *  @change         v0.2.5 - Converted version control to Git
+ *                         - Updated file information comments
+ *                  v0.2.4 - Added content width setting back in (I know what it does now)
+ *                  v0.2.3 - Added post thumbnail size (summary-image) of 500x500
+ *                         - Remove content width setting
+ *                  v0.2.2 - Modified variuos functions to give better HTML5 support
+ *                         - Added shortcodes for email obfuscation and gallery lists
+ *                  v0.2.1 - Modified the perrymnmlist_posted_on function to include the class
+ *                           'posted_on'
+ *                  v0.2.0 - Added perrymnmlist_theme_js & perrymnmlist_inifinte_scroll_js
+ *                           to give the theme support for infinite scroll
+ *                  v0.1.0 - Initial import into SVN
+ *//**
+ * 
  *  @package        Perry Minimalist
  *  @subpackage     Functions
  *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
@@ -16,9 +41,7 @@
  *
  *  @todo           ToDo List
  *                  - 
- *  @change         Rev 16 - Added post thumbnail size (summary-image) of 500x500
- *                         - Remove content width setting
- *                  Rev 17 - Added content width setting back in (I know what it does now)
+ *  @change         
  */
  
  if ( ! isset( $content_width ) ) $content_width = 500;

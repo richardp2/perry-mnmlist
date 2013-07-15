@@ -1,5 +1,4 @@
 <?php
-/* SVN FILE: $Id$*/
 /**
  *  Template Name: Main Site
  *
@@ -9,16 +8,18 @@
  *  page for the Perry Online group of pages.
  *
  *  @package        Perry Minimalist
- *  @subpackage     Page Templates
+ *  @subpackage     Templates
  *  @copyright      Richard Perry <http: //www.perry-online.me.uk/>
- *  @since          Release 1.0.0
- *  @version        $Rev$
- *  @modifiedby     $LastChangedBy$
- *  @lastmodified   $Date$
+ *  @since          Release 0.1.0
+ *  @version        0.2
+ *  @modifiedby     Richard Perry <richard@perrymail.me.uk>
+ *  @lastmodified   15 July 2013
  *
  *  @todo           ToDo List
+ *                  -  
+ * 
+ *  @change         v0.2 - updated file header information
  */
-
 get_header(); ?>
 
         <section id='wide-primary'>
